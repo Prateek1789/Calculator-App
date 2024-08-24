@@ -9,9 +9,9 @@
     --clr-delete: #fa4b24;
 }
 /* Custom Button Classes */
-.btn-num,
-.btn-action,
-.btn-operator {
+.operand,
+.action,
+.operator {
     width: 70px;
     height: 70px;
     font-size: 2.5rem;
@@ -20,17 +20,17 @@
     border-radius: 50%;
     cursor: pointer;
 }
-.btn-num {
+.operand {
     color: var(--clr-num);
     transition: 250ms ease;
 }
-.btn-num:hover {
+.operand:hover {
     color: var(--clr-light);
 }
-.btn-action {
+.action {
     color: var(--clr-slate);
 }
-.btn-operator {
+.operator {
     color: var(--clr-operator);
 }
 #delete {
@@ -76,18 +76,22 @@ body {
     justify-content: end;
     border: none;
 }
-.input,
-.output {
+#input,
+#output {
     display: flex;
+    background-color: transparent;
     text-shadow: -6px 10px 6px rgb(6, 6, 6);
-    justify-content: center;
-    align-items: end;
-}
-.input {
-    font-size: 2rem;
+    text-align: center;
     border: none;
 }
-.output {
+#input {
+    font-size: 2rem;
+    color: var(--clr-bg);
+    
+}
+#output {
+    width: 100%;
+    padding-inline: 1rem;
     font-size: 6rem;
     font-weight: 700;
     margin-bottom: 2rem;
