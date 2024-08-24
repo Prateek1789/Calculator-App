@@ -10,8 +10,6 @@ const deleteNum = document.querySelector(".delete");
 const modulo = document.querySelector(".modulo");
 
 const btn = [...document.querySelectorAll(`.btn`)];
-/* const btnNum = [...document.querySelectorAll(".operand")];
-const btnOperator = [...document.querySelectorAll(".operator")]; */
 
 btn.forEach(itm => {
     itm.addEventListener("click", () => {
@@ -26,19 +24,6 @@ btn.forEach(itm => {
             displayInput.value = inputEquation;
             currentNum = '';
         }
-
-        /* if (itm.dataset.operator == '/' && displayInput.value == '' && displayOutput.value == '') {
-            inputEquation += '/';
-        } */
-        /* if (itm.dataset.value == '+/-') {
-            if (currentNum > 0) {
-                currentNum / -1;
-                displayOutput.value = currentNum;
-            }
-            else {
-                currentNum = currentNum + currentNum * 2;
-            }
-        } */  
 
         if (itm.dataset.operator == '=') {
             const arrEquation = [...inputEquation];
