@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -14,41 +14,42 @@
     <div class="app">
         <div class="calC">
             <div class="display">
-                <div class="input">45*22+10=</div>
-                <div class="output">1,000</div>
+                <input type="text" name="display-In" id="input">
+                <input type="number" name="display-Out" id="output" placeholder="0">
             </div>
 
             <div class="keys">
                 <div class="keyCol-1">
-                    <button class="action btn-action">AC</button>
-                    <button class="operand btn-num">7</button>
-                    <button class="operand btn-num">4</button>
-                    <button class="operand btn-num">1</button>
-                    <button class="operand btn-num">0</button>
+                    <button class="action allClear">AC</button>
+                    <button class="btn operand" data-value="7">7</button>
+                    <button class="btn operand" data-value="4">4</button>
+                    <button class="btn operand" data-value="1">1</button>
+                    <button class="btn operand" data-value="0">0</button>
                 </div>
                 <div class="keyCol-2">
-                    <button class="action btn-action">%</button>
-                    <button class="operand btn-num">8</button>
-                    <button class="operand btn-num">5</button>
-                    <button class="operand btn-num">2</button>
-                    <button class="operand btn-num">.</button>
+                    <button class="action Modulo">%</button>
+                    <button class="btn operand" data-value="8">8</button>
+                    <button class="btn operand" data-value="5">5</button>
+                    <button class="btn operand" data-value="2">2</button>
+                    <button class="btn operand" data-value=".">.</button>
                 </div>
                 <div class="keyCol-3">
-                    <button class="action btn-action" id="delete"><</button>
-                    <button class="operand btn-num">9</button>
-                    <button class="operand btn-num">6</button>
-                    <button class="operand btn-num">3</button>
-                    <button class="operand btn-num">+/-</button>
+                    <button class="action delete" id="delete"><</button>
+                    <button class="btn operand" data-value="9">9</button>
+                    <button class="btn operand" data-value="6">6</button>
+                    <button class="btn operand" data-value="3">3</button>
+                    <button class="btn operand" data-value="+/-">+/-</button>
                 </div>
                 <div class="keyCol-4">
-                    <button class="operator btn-operator">/</button>
-                    <button class="operator btn-operator">X</button>
-                    <button class="operator btn-operator">-</button>
-                    <button class="operator btn-operator">+</button>
-                    <button class="operator btn-operator">=</button>
+                    <button class="btn operator" data-operator="/">/</button>
+                    <button class="btn operator" data-operator="*">x</button>
+                    <button class="btn operator" data-operator="-">-</button>
+                    <button class="btn operator" data-operator="+">+</button>
+                    <button class="btn operator" data-operator="=">=</button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="calcFunc.js"></script>
 </body>
 </html>
