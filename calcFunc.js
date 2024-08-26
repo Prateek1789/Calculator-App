@@ -1,5 +1,6 @@
 let output = 0;
-let inputEquation = ``;
+let inputEquationShow = ``;
+let inputEquationEval = ``;
 let currentNum = ``;
 
 const displayInput = document.querySelector("#input");
@@ -10,34 +11,58 @@ const deleteNum = document.querySelector(".delete");
 const modulo = document.querySelector(".modulo");
 
 const btn = [...document.querySelectorAll(`.btn`)];
+const convert = document.querySelector(".conversion");
 
 btn.forEach(itm => {
     itm.addEventListener("click", () => {
         if (Number(itm.dataset.value) || Number(itm.dataset.value) == 0 || itm.dataset.value == '.') {
             currentNum += itm.dataset.value;
-            inputEquation += itm.dataset.value;
-            displayOutput.value = Number(currentNum);
-            displayInput.value = inputEquation;
+            inputEquationShow += itm.dataset.value;
+            inputEquationEval += itm.dataset.value;
+            displayOutput.value = currentNum;
+            displayInput.value = inputEquationShow;
         }
         else if (!Number(itm.dataset.operator)) {
-            inputEquation += `${itm.dataset.operator}`;
-            displayInput.value = inputEquation;
-            currentNum = '';
+            inputEquationShow += `${itm.textContent}`;
+            inputEquationEval += `${itm.dataset.operator}`;
+            console.log(inputEquationEval);
+            displayInput.value = inputEquationShow;
+            currentNum = ``;
         }
 
         if (itm.dataset.operator == '=') {
-            const arrEquation = [...inputEquation];
+            const arrEquation = [...inputEquationEval];
             arrEquation.pop();
             displayOutput.value = eval(arrEquation.join(''));
+            currentNum = ``;
+            inputEquationShow = ``;
+            inputEquationEval = ``;
         }
     })
 })
 
+convert.addEventListener("click", () => {
+    if (!displayOutput.value && !displayInput.value) {
+        return; 
+    }
+    else if (displayOutput.value && displayOutput.value > 0) {
+        currentNum = displayOutput.value / -1;
+        displayOutput.value = currentNum;
+        inputEquationShow += `${currentNum}`;
+        console.log(inputEquationShow);
+        displayInput.value = inputEquationShow;
+    }
+    else if (displayOutput.value && displayOutput.value < 0) {
+        currentNum = displayOutput.value * -1;
+        displayOutput.value = currentNum;
+    }
+})
+
 deleteNum.addEventListener("click", () => {
-    let arrayEquation = [...inputEquation];
+    let arrayEquation = [...inputEquationShow];
     arrayEquation.length != [] ? arrayEquation.pop() : arrayEquation = [];
-    inputEquation = arrayEquation.join('');
-    displayInput.value = inputEquation;
+    inputEquationShow = arrayEquation.join('');
+    displayInput.value = inputEquationShow;
 
     let arrayNum = [...currentNum];
     arrayNum.length != [] ? arrayNum.pop() : arrayNum = [];
@@ -47,8 +72,9 @@ deleteNum.addEventListener("click", () => {
 })
 
 allClear.addEventListener("click", () => {
-    displayInput.value = '';
-    displayOutput.value = '';
-    currentNum = '';
-    inputEquation = '';
+    displayInput.value = ``;
+    displayOutput.value = ``;
+    currentNum = ``;
+    inputEquationShow = ``;
+    inputEquationEval = ``;
 })
