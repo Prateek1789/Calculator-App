@@ -11,7 +11,8 @@
 /* Custom Button Classes */
 .operand,
 .action,
-.operator {
+.operator,
+.btn-X {
     width: 70px;
     height: 70px;
     font-size: 2.5rem;
@@ -20,10 +21,12 @@
     border-radius: 50%;
     cursor: pointer;
 }
+.btn-X,
 .operand {
     color: var(--clr-num);
     transition: 250ms ease;
 }
+.btn-X:hover,
 .operand:hover {
     color: var(--clr-light);
 }
@@ -39,11 +42,9 @@
     align-items: center;
     justify-content: center;
     color: var(--clr-delete);
+    font-size: 50px;
 }
-#delete > img {
-    height: 50px;
-    width: 50px;
-}
+
 .operand,
 .action,
 .display {
@@ -92,6 +93,7 @@ body {
 #input {
     font-size: 2rem;
     color: var(--clr-bg);
+    letter-spacing: 3px;
     
 }
 #output {
